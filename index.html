@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PetriPilot — Die Angler-App herunterladen</title>
+  <meta name="description" content="PetriPilot: Karte, Tiefen, Wetter, Beißprognose, Echtzeit-Pegel und Fangbuch für Angler in ganz Deutschland.">
+  <meta name="theme-color" content="#0b3d5c">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0b3d5c; --navy-dark: #082b42; --navy-light: #1e6091;
+      --orange: #ff6b35; --orange-dark: #cc3300;
+      --bg: #f3f4f6; --card: #fff; --border: #e5e7eb;
+      --text: #1a1a1a; --muted: #6b7280;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(160deg, var(--navy) 0%, var(--navy-light) 100%);
+      color: #fff; text-align: center; padding: 56px 20px 64px;
+    }
+    .hero .logo { width: 96px; height: 96px; margin: 0 auto 18px; display: block; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
+    .hero h1 { font-size: 40px; font-weight: 800; letter-spacing: 1px; margin-bottom: 8px; }
+    .hero .tagline { font-size: 17px; opacity: 0.9; max-width: 520px; margin: 0 auto 32px; }
+    .dl-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--orange); color: #fff; text-decoration: none;
+      padding: 17px 36px; border-radius: 14px; font-size: 19px; font-weight: 700;
+      box-shadow: 0 6px 20px rgba(255,107,53,0.5); transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .dl-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 26px rgba(255,107,53,0.6); }
+    .dl-btn svg { width: 26px; height: 26px; fill: #fff; }
+    .dl-meta { margin-top: 14px; font-size: 13px; opacity: 0.75; }
+
+    /* SECTIONS */
+    section { padding: 48px 0; }
+    section h2 { font-size: 26px; font-weight: 700; text-align: center; margin-bottom: 8px; color: var(--navy); }
+    section .sub { text-align: center; color: var(--muted); margin-bottom: 32px; }
+
+    /* FEATURES */
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+    .feature {
+      background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 22px;
+    }
+    .feature .ico {
+      width: 48px; height: 48px; border-radius: 12px; background: #fff7ed;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 14px;
+    }
+    .feature .ico svg { width: 26px; height: 26px; fill: var(--orange); }
+    .feature h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    .feature p { font-size: 14px; color: var(--muted); }
+
+    /* STEPS */
+    .steps { background: var(--card); }
+    .step { display: flex; gap: 18px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid var(--border); }
+    .step:last-child { border-bottom: none; }
+    .step .num {
+      flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%; background: var(--navy); color: #fff;
+      display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 17px;
+    }
+    .step .txt h3 { font-size: 16px; font-weight: 700; margin-bottom: 3px; }
+    .step .txt p { font-size: 14px; color: var(--muted); }
+
+    /* SAFETY BOX */
+    .safety {
+      background: #ecfdf5; border: 1.5px solid #a7f3d0; border-radius: 14px; padding: 22px 24px; margin-top: 28px;
+    }
+    .safety h3 { color: #065f46; font-size: 17px; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .safety h3 svg { width: 22px; height: 22px; fill: #16a34a; }
+    .safety p { font-size: 14px; color: #047857; margin-bottom: 8px; }
+    .safety p:last-child { margin-bottom: 0; }
+
+    /* FOOTER */
+    footer { text-align: center; padding: 32px 20px; color: var(--muted); font-size: 13px; }
+    footer .fish { width: 28px; height: 28px; opacity: 0.5; margin-bottom: 8px; }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 32px; }
+      .hero .tagline { font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <svg class="logo" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="f" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ff8c00"/><stop offset="100%" stop-color="#ff3d00"/></linearGradient></defs>
+      <g transform="translate(512 512) rotate(-22) scale(1.35)">
+        <path d="M 240 0 L 380 -120 L 340 0 L 380 120 Z" fill="url(#f)"/>
+        <ellipse cx="0" cy="0" rx="240" ry="95" fill="url(#f)"/>
+        <path d="M -40 -85 Q 0 -180 60 -85 Z" fill="#cc3300"/>
+        <path d="M -40 85 Q 0 150 60 85 Z" fill="#cc3300"/>
+        <circle cx="-160" cy="-18" r="28" fill="white"/>
+        <circle cx="-160" cy="-18" r="14" fill="#1a1a1a"/>
+        <circle cx="-152" cy="-25" r="5" fill="white"/>
+      </g>
+    </svg>
+    <h1>PetriPilot</h1>
+    <p class="tagline">Deine Angler-App für ganz Deutschland — Karte, Tiefen, Wetter, Beißprognose, Echtzeit-Pegel und digitales Fangbuch.</p>
+    <a class="dl-btn" href="./PetriPilot.apk" download>
+      <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+      Für Android herunterladen
+    </a>
+    <div class="dl-meta">Android 6.0+ · ca. 5 MB · Aktivierungscode erforderlich</div>
+  </div>
+
+  <!-- FEATURES -->
+  <section>
+    <div class="wrap">
+      <h2>Was PetriPilot kann</h2>
+      <p class="sub">Alle wichtigen Infos für deinen Angeltag — an einem Ort.</p>
+      <div class="features">
+        <div class="feature">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg></div>
+          <h3>70 Spots in 16 Bundesländern</h3>
+          <p>Talsperren, Seen und alle großen Flüsse — Rhein, Elbe, Donau, Weser, Mosel und viele mehr. Filterbar nach Bundesland.</p>
+        </div>
+        <div class="feature">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M9 2L3 4v18l6-2 6 2 6-2V2l-6 2-6-2z"/></svg></div>
+          <h3>Karte mit Satellit</h3>
+          <p>Straßenkarte, topografische Karte und hochauflösendes Satellitenbild. GPS-Knopf bringt dich direkt zu deiner Position.</p>
+        </div>
+        <div class="feature">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M19.36 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.64-4.96z"/></svg></div>
+          <h3>Wetter & Beißprognose</h3>
+          <p>Temperatur, Luftdruck mit Trend, Wind und Mondphase. Eine Ampel zeigt dir, wie gut die Beißchancen stehen.</p>
+        </div>
+        <div class="feature">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2c-5.33 4.55-8 8.48-8 11.8 0 4.98 3.8 8.2 8 8.2s8-3.22 8-8.2c0-3.32-2.67-7.25-8-11.8z"/></svg></div>
+          <h3>Tiefe & Echtzeit-Pegel</h3>
+          <p>Maximal- und Mitteltiefe je Gewässer plus aktueller Wasserstand vom nächsten amtlichen Pegel (WSV PEGELONLINE).</p>
+        </div>
+        <div class="feature">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/></svg></div>
+          <h3>Fangbuch mit Foto</h3>
+          <p>Fang mit Art, Größe, Tiefe, Köder und Foto festhalten — direkt mit der Kamera. Alles bleibt privat auf deinem Gerät.</p>
+        </div>
+        <div class="feature">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+          <h3>Privat & schlank</h3>
+          <p>Keine Werbung, keine Konten, keine Datensammlung. Nur 5 MB groß — schneller Download, wenig Speicher.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEPS -->
+  <section class="steps">
+    <div class="wrap">
+      <h2>So installierst du PetriPilot</h2>
+      <p class="sub">In drei Schritten startklar — dauert weniger als eine Minute.</p>
+      <div class="step">
+        <div class="num">1</div>
+        <div class="txt"><h3>Herunterladen</h3><p>Tippe oben auf „Für Android herunterladen". Die Datei landet in deinem Download-Ordner.</p></div>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <div class="txt"><h3>Öffnen & installieren</h3><p>Tippe auf die heruntergeladene Datei. Falls Android nachfragt, erlaube die Installation einmalig für deinen Browser.</p></div>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <div class="txt"><h3>Code eingeben</h3><p>Beim ersten Start den Aktivierungscode eintippen, den du vom Entwickler bekommen hast. Fertig — Petri Heil!</p></div>
+      </div>
+
+      <!-- SAFETY -->
+      <div class="safety">
+        <h3><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg> Ist das sicher?</h3>
+        <p><strong>Ja.</strong> Android zeigt bei jeder App, die nicht aus dem Play Store kommt, einen Hinweis wie „aus unbekannter Quelle". Das ist eine Standard-Meldung — sie erscheint bei <em>jeder</em> solchen App und ist keine Warnung speziell vor PetriPilot.</p>
+        <p>PetriPilot sammelt keine Daten, zeigt keine Werbung und braucht nur die Berechtigungen, die du im Einsatz siehst: Standort (für GPS) und Kamera (für Fang-Fotos) — beide nur, wenn du sie nutzt.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <svg class="fish" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(512 512) rotate(-22) scale(1.3)" fill="#0b3d5c">
+        <path d="M 240 0 L 380 -120 L 340 0 L 380 120 Z"/>
+        <ellipse cx="0" cy="0" rx="240" ry="95"/>
+      </g>
+    </svg>
+    <div>PetriPilot — Demo-Version · Daten: OpenStreetMap, EMODnet, DWD/Bright Sky, WSV PEGELONLINE</div>
+  </footer>
+
+</body>
+</html>
